@@ -21,12 +21,7 @@ export const DnDProvider = ({ children }) => {
         setData((prevData) => ({ ...prevData, [`${label}Data`]: resolve }))
       );
 
-  const fetchDnDClasses = () => fetchEndpointData(loadingData.classes, "class");
-
-  const fetchDnDAbilityScores = () =>
-    fetchEndpointData(loadingData["ability-scores"], "abilityScore");
-
-  const fetchDnDSkills = () => fetchEndpointData(loadingData.skills, "skills");
+  const fetchDnDSpells = () => fetchEndpointData(loadingData.spells, "spells");
 
   useEffect(() => {
     fetchDnDEndpoints();
@@ -35,9 +30,7 @@ export const DnDProvider = ({ children }) => {
   return (
     <DnDContext.Provider
       value={{
-        fetchDnDClasses,
-        fetchDnDAbilityScores,
-        fetchDnDSkills,
+        fetchDnDSpells,
       }}>
       {children}
     </DnDContext.Provider>
@@ -48,8 +41,6 @@ export const useDnDContext = () => {
   const context = useContext(DnDContext);
 
   return {
-    fetchDnDClasses: context.fetchDnDClasses,
-    fetchDnDAbilityScores: context.fetchDnDAbilityScores,
-    fetchDnDSkills: context.fetchDnDSkills,
+    fetchDnDSpells: context.fetchDnDSpells,
   };
 };

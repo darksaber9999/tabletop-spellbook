@@ -2,16 +2,13 @@ import { useDnDContext } from "./providers/DnDProvider";
 import "./App.css";
 
 function App() {
-  const { fetchDnDClasses, fetchDnDAbilityScores, fetchDnDSkills } =
-    useDnDContext();
+  const { fetchDnDSpells } = useDnDContext();
 
   return (
     <div className="App">
       <h1>Toast Testing</h1>
       <div className="card">
-        <button onClick={() => fetchDnDClasses()}>Classes</button>
-        <button onClick={() => fetchDnDAbilityScores()}>Ability Scores</button>
-        <button onClick={() => fetchDnDSkills()}>Skills</button>
+        <button onClick={() => fetchDnDSpells()}>Spells</button>
       </div>
     </div>
   );
